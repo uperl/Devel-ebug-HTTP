@@ -1,7 +1,7 @@
 #!perl
 BEGIN { 
     $ENV{CATALYST_ENGINE} ||= 'HTTP';
-    $ENV{CATALYST_SCRIPT_GEN} = 4;
+    $ENV{CATALYST_SCRIPT_GEN} = 27;
 }  
 
 use strict;
@@ -10,7 +10,7 @@ use lib 'lib';
 use Devel::ebug;
 use Devel::ebug::HTTP;
 
-my $port = 8080;
+my $port = 8321;
 my $filename = shift;
 die "Usage: ebug_http filename\n" unless $filename;
 

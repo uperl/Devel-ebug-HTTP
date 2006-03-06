@@ -12,8 +12,7 @@ use Path::Class;
 use PPI;
 use PPI::HTML;
 use Storable qw(dclone);
-
-our $VERSION = 0.29;
+our $VERSION = "0.30";
 
 # globals for now, sigh
 my $codelines_cache;
@@ -49,7 +48,7 @@ Devel::ebug::HTTP->setup;
 sub default : Private {
   my($self, $c) = @_;
   $c->stash->{template} = 'index';
-  $c->forward('handle_request');
+  $c->forward('do_the_request');
 }
 
 sub ajax_variable : Regex('^ajax_variable$') {
@@ -110,7 +109,7 @@ sub end : Private {
   }
 }
 
-sub handle_request : Private {
+sub do_the_request : Private {
   my($self, $c) = @_;
   my $params = $c->request->parameters;
 

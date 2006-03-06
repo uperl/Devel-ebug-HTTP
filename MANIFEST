@@ -1,8 +1,24 @@
-Build.PL
+CHANGES
 ebug_http
+inc/Module/AutoInstall.pm
+inc/Module/Install.pm
+inc/Module/Install/AutoInstall.pm
+inc/Module/Install/Base.pm
+inc/Module/Install/Can.pm
+inc/Module/Install/Catalyst.pm
+inc/Module/Install/Fetch.pm
+inc/Module/Install/Include.pm
+inc/Module/Install/Makefile.pm
+inc/Module/Install/Metadata.pm
+inc/Module/Install/Scripts.pm
+inc/Module/Install/Win32.pm
+inc/Module/Install/WriteAll.pm
 lib/Devel/ebug/HTTP.pm
-lib/Devel/ebug/HTTP/TT.pm
+lib/Devel/ebug/HTTP/View/TT.pm
+Makefile.PL
 MANIFEST			This list of files
+META.yml
+README
 root/break_point.gif
 root/break_point.js
 root/break_point_off.gif
@@ -28,5 +44,3 @@ root/stock_undo.png
 root/tooltip.js
 t/calc.pl
 t/ebug_http.t
-META.yml
-Makefile.PL
