@@ -12,7 +12,7 @@ use Path::Class;
 use PPI;
 use PPI::HTML;
 use Storable qw(dclone);
-our $VERSION = "0.30";
+our $VERSION = "0.31";
 
 # globals for now, sigh
 my $codelines_cache;

@@ -1,5 +1,8 @@
 Revision history for Perl module Devel::ebug::HTTP
 
+0.31 Mon Mar  6 20:49:33 GMT 2006
+     - update to work around Module::Install breakage
+
 0.30 Mon Mar  6 20:49:33 GMT 2006
      - update to work with recent Catalyst
 

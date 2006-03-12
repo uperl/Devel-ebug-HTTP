@@ -1,4 +1,4 @@
-#line 1 "inc/Module/AutoInstall.pm - /usr/local/share/perl/5.8.4/Module/AutoInstall.pm"
+#line 1
 package Module::AutoInstall;
 
 use strict;

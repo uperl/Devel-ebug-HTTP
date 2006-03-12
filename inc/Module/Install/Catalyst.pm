@@ -1,4 +1,4 @@
-#line 1 "inc/Module/Install/Catalyst.pm - /usr/local/share/perl/5.8.4/Module/Install/Catalyst.pm"
+#line 1
 package Module::Install::Catalyst;
 
 use strict;
