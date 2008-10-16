@@ -12,7 +12,7 @@ use Path::Class;
 use PPI;
 use PPI::HTML;
 use Storable qw(dclone);
-our $VERSION = "0.31";
+our $VERSION = "0.32";
 
 # globals for now, sigh
 my $codelines_cache;
@@ -287,6 +287,8 @@ Leon Brocard, C<< <acme@astray.com> >>
 =head1 COPYRIGHT
 
 Copyright (C) 2005, Leon Brocard
+
+=head1 LICENSE
 
 This module is free software; you can redistribute it or modify it
 under the same terms as Perl itself.
