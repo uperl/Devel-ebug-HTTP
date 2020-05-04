@@ -22,4 +22,9 @@ catalyst;
 
 install_script glob('ebug_http');
 auto_install;
+
+homepage   'https://metacpan.org/pod/Devel::ebug::HTTP';
+bugtracker 'https://github.com/plicease/Devel-ebug-HTTP/issues';
+repository 'https://github.com/plicease/Devel-ebug-HTTP';
+
 WriteAll;
