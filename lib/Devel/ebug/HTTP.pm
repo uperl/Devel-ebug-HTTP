@@ -1,8 +1,9 @@
 package Devel::ebug::HTTP;
+
 use strict;
 use warnings;
-use Catalyst qw/Static/;
-#use Catalyst qw/-Debug Static/;
+use Catalyst qw/Static::Simple/;
+#use Catalyst qw/-Debug Static::Simple/;
 use Catalyst::View::TT;
 use Cwd;
 use Devel::ebug;
@@ -75,30 +76,6 @@ sub ajax_eval : Regex('^ajax_eval$') {
   $result =~ s/ at \(eval .+$//;
   $context->response->content_type("text/html");
   $context->response->output($result);
-}
-
-sub css : Regex('(?i)\.(?:css)') {
-  my($self, $c) = @_;
-  $c->res->headers->header('Cache-Control' => 'max-age=60');
-  $c->serve_static("text/css");
-}
-
-sub js : Regex('(?i)\.(?:js)') {
-   my($self, $c) = @_;
-   $c->res->headers->header('Cache-Control' => 'max-age=60');
-   $c->serve_static("application/x-javascript");
-}
-
-sub ico : Regex('(?i)\.(?:ico)') {
-  my($self, $c) = @_;
-  $c->res->headers->header('Cache-Control' => 'max-age=60');
-  $c->serve_static("image/vnd.microsoft.icon");
-}
-
-sub images : Regex('(?i)\.(?:gif|jpg|png)') {
-  my($self, $c) = @_;
-  $c->res->headers->header('Cache-Control' => 'max-age=60');
-  $c->serve_static;
 }
 
 sub end : Private {

@@ -1,5 +1,9 @@
 Revision history for Perl module Devel::ebug::HTTP
 
+  - Switch from Catalyst::Plugin::Static to Catalyst::Plugin::Static::Simple
+    (rt#29964, rt#50619, gh#1, gh#3, gh#6)
+  - Upgraded to more recent Module::Install (rt#40599, gh#3, gh#6)
+
 0.32 Thu Oct 16 20:15:56 BST 2008
      - add human-readable license to the documentation
 
