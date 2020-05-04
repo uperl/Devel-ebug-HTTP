@@ -1,12 +1,15 @@
 #line 1
 package Module::Install::Include;
 
-use Module::Install::Base;
-@ISA = qw(Module::Install::Base);
-
-$VERSION = '0.60';
-
 use strict;
+use Module::Install::Base ();
+
+use vars qw{$VERSION @ISA $ISCORE};
+BEGIN {
+	$VERSION = '1.19';
+	@ISA     = 'Module::Install::Base';
+	$ISCORE  = 1;
+}
 
 sub include {
 	shift()->admin->include(@_);
