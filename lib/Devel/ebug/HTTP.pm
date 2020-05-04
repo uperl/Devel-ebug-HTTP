@@ -1,8 +1,9 @@
 package Devel::ebug::HTTP;
+
 use strict;
 use warnings;
 use Catalyst qw/Static::Simple/;
-#use Catalyst qw/-Debug Static/;
+#use Catalyst qw/-Debug Static::Simple/;
 use Catalyst::View::TT;
 use Cwd;
 use Devel::ebug;
