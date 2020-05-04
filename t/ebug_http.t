@@ -64,3 +64,5 @@ is(
 </response>
   |
 );
+
+undef $ebug->{proc};
