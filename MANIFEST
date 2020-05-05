@@ -1,8 +1,7 @@
 CHANGES
 ebug_http
-inc/Module/AutoInstall.pm
+inc/File/Copy/Recursive.pm
 inc/Module/Install.pm
-inc/Module/Install/AutoInstall.pm
 inc/Module/Install/Base.pm
 inc/Module/Install/Can.pm
 inc/Module/Install/Catalyst.pm

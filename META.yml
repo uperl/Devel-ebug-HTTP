@@ -1,30 +1,38 @@
 ---
-name: Devel-ebug-HTTP
-version: 0.29
+abstract: 'A web front end to a simple, extensible Perl debugger'
 author:
   - 'Leon Brocard, C<< <acme@astray.com> >>'
-abstract: 'A web front end to a simple, extensible Perl debugger'
+build_requires:
+  ExtUtils::MakeMaker: 6.36
+configure_requires:
+  ExtUtils::MakeMaker: 6.36
+distribution_type: module
+dynamic_config: 1
+generated_by: 'Module::Install version 1.19'
 license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Devel-ebug-HTTP
+no_index:
+  directory:
+    - inc
+    - t
 requires:
-  Catalyst: 5.10
-  Catalyst::Plugin::Static: 0.07
-  Catalyst::View::TT: 0.11
-  Devel::ebug: 0.45
+  Catalyst: '5.64'
+  Catalyst::DispatchType::Regex: 0
+  Catalyst::Plugin::Static::Simple: 0
+  Catalyst::View::TT: 0
+  Devel::ebug: '0.45'
   HTML::Prototype: 0
-  List::Util: 0
-  PPI: 1.003
+  PPI: '1.110'
   PPI::HTML: 0
-  PPI::Lexer: 0
   Path::Class: 0
-  Storable: 0
-  Template: 0
   Test::Expect: 0
-  Test::More: 0
-  Test::WWW::Mechanize::Catalyst: 0.31
-provides:
-  Devel::ebug::HTTP:
-    file: lib/Devel/ebug/HTTP.pm
-    version: 0.29
-  Devel::ebug::HTTP::View::TT:
-    file: lib/Devel/ebug/HTTP/TT.pm
-generated_by: Module::Build version 0.2611
+  Test::WWW::Mechanize::Catalyst: 0
+resources:
+  bugtracker: https://github.com/plicease/Devel-ebug-HTTP/issues
+  homepage: https://metacpan.org/pod/Devel::ebug::HTTP
+  license: http://dev.perl.org/licenses/
+  repository: https://github.com/plicease/Devel-ebug-HTTP
+version: '0.32'
