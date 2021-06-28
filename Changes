@@ -1,9 +1,11 @@
-Revision history for Perl module Devel::ebug::HTTP
+Revision history for {{$dist->name}}
 
+{{$NEXT}}
   - Switch from Catalyst::Plugin::Static to Catalyst::Plugin::Static::Simple
     (rt#29964, rt#50619, gh#1, gh#3, gh#6)
   - Upgraded to more recent Module::Install (rt#40599, gh#3, gh#6)
   - Work around in test for possible bug in Proc::Background (rt#31960, gh#5, gh#7)
+  - Fix buttons that were using HTML "value" attribute which is not allowed (gh#17)
 
 0.32 Thu Oct 16 20:15:56 BST 2008
      - add human-readable license to the documentation
