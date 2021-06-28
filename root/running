@@ -3,8 +3,6 @@
 
 <div id="body" onFocus = "keys_disabled = 0">
 
-<form name="myform" method="post" action="[% url %]#top">
-<input type="hidden" name="sequence" value="[% sequence %]"/>
 <table id="icon_bar" width="100%">
 <tr>
 [% INCLUDE icon image="stock_undo.png" text="Undo" %]
@@ -16,7 +14,6 @@
 <td width="100%">[% ebug.program | html %] [% subroutine %]([% ebug.filename | html %]#[% ebug.line %])</td>
 </tr>
 </table>
-</form>
 
 <table id="icon_bar" width="100%">
 <tr><td>
