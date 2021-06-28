@@ -1,5 +1,5 @@
 <div id="version">
-<a href="http://search.cpan.org/dist/Devel-ebug/">Devel::ebug</a> [% ebug.VERSION %]
+<a href="https://metacpan.org/pod/Devel::ebug/">Devel::ebug</a> [% ebug.VERSION %]
 </div>
 
 <form name="hiddenform" method="post" style="visibility:hidden;" action="[% url %]#top">

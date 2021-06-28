@@ -212,9 +212,9 @@ sub codelines {
   # make us slightly more XHTML
   $_ =~ s{<br>}{<br/>} foreach @lines;
 
-  # link module names to search.cpan.org
+  # link module names to metacpan
   @lines = map {
-    $_ =~ s{<span class="word">([^<]+?::[^<]+?)</span>}{<span class="word"><a href="http://search.cpan.org/perldoc?$1">$1</a></span>};
+    $_ =~ s{<span class="word">([^<]+?::[^<]+?)</span>}{<span class="word"><a href="https://metacpan.org/pod/$1">$1</a></span>};
     $_;
   } @lines;
 
