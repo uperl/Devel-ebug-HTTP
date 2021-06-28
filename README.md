@@ -1,4 +1,4 @@
-# Devel::ebug::HTTP
+# Devel::ebug::HTTP ![linux](https://github.com/uperl/Devel-ebug-HTTP/workflows/linux/badge.svg)
 
 A web front end to a simple, extensible Perl debugger
 
