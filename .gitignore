@@ -1,6 +1,3 @@
-/MYMETA*
-/Makefile
-/blib
-/pm_to_blib
-*.bak
 /Devel-ebug-HTTP-*
+/.build
+*.swp

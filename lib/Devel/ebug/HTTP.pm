@@ -2,6 +2,7 @@ package Devel::ebug::HTTP;
 
 use strict;
 use warnings;
+use 5.010001;
 use Catalyst qw/Static::Simple/;
 #use Catalyst qw/-Debug Static::Simple/;
 use Catalyst::View::TT;
@@ -13,9 +14,12 @@ use Path::Class;
 use PPI;
 use PPI::HTML;
 use Storable qw(dclone);
-our $VERSION = "0.32";
+use File::ShareDir::Dist qw( dist_share );
 
-# globals for now, sigh
+# ABSTRACT: A web front end to a simple, extensible Perl debugger
+# VERSION
+
+# global for now, sigh
 my $codelines_cache;
 our $ebug;
 my $lines_visible_above_count = 10;
@@ -27,20 +31,19 @@ Devel::ebug::HTTP->config(
   name => 'Devel::ebug::HTTP',
 );
 
-# Catalyst has new template bundling code, but the following is
-# necessary for now as our distribution is Devel::ebug but the
-# application is Devel::ebug::HTTP (sigh)
-my $root = Devel::ebug::HTTP->config->{root};
-unless (-d $root) {
-  my $home = Devel::ebug::HTTP->config->{home};
-  $home = dir($home)->parent;
-  $root = dir($home)->subdir('root');
-  unless (-d $root) {
-    $root = dir($home)->parent->parent->parent->subdir('root');
+{
+  my $share = dist_share('Devel-ebug-HTTP');
+  
+  unless(defined $share)
+  {
+    $share = -f "share/root/index"  # TODO do relative to ebug?
+      ? "share"
+      : die "unable to find home or root";
   }
+
   Devel::ebug::HTTP->config(
-    home => $home,
-    root => $root,
+    home => "$share",
+    root => "$share/root",
   );
 }
 
@@ -228,17 +231,13 @@ sub variable_html {
 }
 
 sub line_html {
-	my($url, $line) = @_;
-	return qq{<a href="#" style="text-decoration: none" onClick="return break_point($line)">$line</a>};
+  my($url, $line) = @_;
+  return qq{<a href="#" style="text-decoration: none" onClick="return break_point($line)">$line</a>};
 }
 
 1;
 
 __END__
-
-=head1 NAME
-
-Devel::ebug::HTTP - A web front end to a simple, extensible Perl debugger
 
 =head1 SYNOPSIS
 
@@ -257,15 +256,4 @@ which you should point a web browser to.
 
 L<Devel::ebug>, L<ebug_http>
 
-=head1 AUTHOR
-
-Leon Brocard, C<< <acme@astray.com> >>
-
-=head1 COPYRIGHT
-
-Copyright (C) 2005, Leon Brocard
-
-=head1 LICENSE
-
-This module is free software; you can redistribute it or modify it
-under the same terms as Perl itself.
+=cut

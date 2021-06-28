@@ -1,14 +1,18 @@
-#!perl
+#!/usr/bin/env perl
 BEGIN { 
     $ENV{CATALYST_ENGINE} ||= 'HTTP';
     $ENV{CATALYST_SCRIPT_GEN} = 40;
 }  
 
 use strict;
-use FindBin;
-use lib 'lib';
+use warnings;
+use lib::findbin '../lib'; # dev-only
 use Devel::ebug;
 use Devel::ebug::HTTP;
+
+# PODNAME: ebug_http
+# ABSTRACT: A simple, extensible web Perl debugger
+# VERSION
 
 my $filename = shift;
 die "Usage: ebug_http filename\n" unless $filename;
@@ -25,10 +29,6 @@ Catalyst::ScriptRunner->run('Devel::ebug::HTTP', 'Server');
 
 __END__
 
-=head1 NAME
-
-ebug_http - A simple, extensible web Perl debugger
-
 =head1 SYNOPSIS
 
   % ebug_http calc.pl
@@ -42,13 +42,4 @@ debugger. When run, it will report back how to contact its front page.
 
 L<Devel::ebug>
 
-=head1 AUTHOR
-
-Leon Brocard, C<< <acme@astray.com> >>
-
-=head1 COPYRIGHT
-
-Copyright (C) 2005, Leon Brocard
-
-This program is free software; you can redistribute it or modify it
-under the same terms as Perl itself.
+=cut
