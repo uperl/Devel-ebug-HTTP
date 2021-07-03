@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Fixed prereqs (gh#19)
 
 0.33      2021-06-28 13:43:22 -0600
   - Switch from Catalyst::Plugin::Static to Catalyst::Plugin::Static::Simple
