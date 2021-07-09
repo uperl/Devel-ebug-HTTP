@@ -1,7 +1,5 @@
-#!perl
 use strict;
 use warnings;
-use lib 'lib';
 use Devel::ebug;
 use HTTP::Request::Common;
 use Test::More tests => 24;
