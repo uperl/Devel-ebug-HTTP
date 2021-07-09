@@ -57,7 +57,7 @@ sub default : Private {
   $c->forward('do_the_request');
 }
 
-sub ajax_variable : Path('/ajax_variable') {
+sub ajax_variable : Local {
   my ($self, $context, $variable) = @_;
   $variable = '\\' . $variable if $variable =~ /^[%@]/;
   my $value = $ebug->yaml($variable);
@@ -74,7 +74,7 @@ sub ajax_variable : Path('/ajax_variable') {
   $context->response->output($xml);
 }
 
-sub ajax_eval : Path('/ajax_eval') {
+sub ajax_eval : Local {
   my ($self, $context) = @_;
   my $eval = $context->request->parameters->{eval};
   my $result = $ebug->eval($eval) || "No output";
