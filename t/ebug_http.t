@@ -7,10 +7,10 @@ use HTTP::Request::Common;
 use Test::More tests => 24;
 use Test::WWW::Mechanize::Catalyst 'Devel::ebug::HTTP';
 
-my $ebug = Devel::ebug->new();
+my $ebug = Devel::ebug->new;
 $ebug->program("corpus/calc.pl");
 $ebug->load;
-$Devel::ebug::HTTP::ebug = $ebug;
+Devel::ebug::HTTP::App->ebug($ebug);
 
 my $root = "http://localhost";
 

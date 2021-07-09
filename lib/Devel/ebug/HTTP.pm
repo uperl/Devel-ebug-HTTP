@@ -21,7 +21,7 @@ use File::ShareDir::Dist qw( dist_share );
 
 # global for now, sigh
 my $codelines_cache;
-our $ebug;
+my $ebug;
 my $lines_visible_above_count = 10;
 my $sequence = 1;
 my $vars;
@@ -233,6 +233,26 @@ sub variable_html {
 sub line_html {
   my($url, $line) = @_;
   return qq{<a href="#" style="text-decoration: none" onClick="return break_point($line)">$line</a>};
+}
+
+package Devel::ebug::HTTP::App;
+
+sub main {
+  my $filename = shift @ARGV;
+  die "Usage: ebug_http filename\n" unless $filename;
+
+  $ebug = Devel::ebug->new;
+  $ebug->program($filename);
+  $ebug->load;
+
+  require Catalyst::ScriptRunner;
+  Catalyst::ScriptRunner->run('Devel::ebug::HTTP', 'Server');
+}
+
+sub ebug {
+  my(undef, $new) = @_;
+  $ebug = $new if @_ > 1;
+  return $ebug;
 }
 
 1;
