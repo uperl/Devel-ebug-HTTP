@@ -5,15 +5,6 @@ use warnings;
 use 5.010001;
 use Catalyst qw/Static::Simple/;
 #use Catalyst qw/-Debug Static::Simple/;
-use Catalyst::View::TT;
-use Cwd;
-use Devel::ebug;
-use HTML::Prototype;
-use List::Util qw(max);
-use Path::Class;
-use PPI;
-use PPI::HTML;
-use Storable qw(dclone);
 use File::ShareDir::Dist qw( dist_share );
 
 # ABSTRACT: A web front end to a simple, extensible Perl debugger
@@ -48,6 +39,18 @@ Devel::ebug::HTTP->config(
 }
 
 Devel::ebug::HTTP->setup;
+
+package Devel::ebug::HTTP::Controller::Root;
+
+use PPI;
+use PPI::HTML;
+use List::Util qw( max );
+use base qw( Catalyst::Controller );
+
+BEGIN {
+  $INC{'Devel/ebug/HTTP/Controller/Root.pm'} = __FILE__;
+  Devel::ebug::HTTP::Controller::Root->config( namespace => '' );
+}
 
 sub default : Private {
   my($self, $c) = @_;
@@ -235,12 +238,24 @@ sub line_html {
   return qq{<a href="#" style="text-decoration: none" onClick="return break_point($line)">$line</a>};
 }
 
+package Devel::ebug::HTTP::View::TT;
+
+use strict;
+use warnings;
+use Catalyst::View::TT;
+use base qw(Catalyst::View::TT);
+
+BEGIN {
+  $INC{'Devel/ebug/HTTP/View/TT.pm'} = __FILE__;
+}
+
 package Devel::ebug::HTTP::App;
 
 sub main {
   my $filename = shift @ARGV;
   die "Usage: ebug_http filename\n" unless $filename;
 
+  require Devel::ebug;
   $ebug = Devel::ebug->new;
   $ebug->program($filename);
   $ebug->load;
