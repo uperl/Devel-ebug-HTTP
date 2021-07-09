@@ -19,7 +19,17 @@ which you should point a web browser to.
 
 # SEE ALSO
 
-[Devel::ebug](https://metacpan.org/pod/Devel::ebug), [ebug\_http](https://metacpan.org/pod/ebug_http)
+- [Devel::ebug](https://metacpan.org/pod/Devel::ebug)
+
+    Simple extensible Perl debugger with clean API.
+
+- [ebug\_http](https://metacpan.org/pod/ebug_http)
+
+    Command-line interface to ebug/http debugger.
+
+- [Devel::hdb](https://metacpan.org/pod/Devel::hdb)
+
+    Similar web based debugger for Perl
 
 # AUTHOR
 

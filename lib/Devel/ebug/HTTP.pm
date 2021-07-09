@@ -17,7 +17,6 @@ my $lines_visible_above_count = 10;
 my $sequence = 1;
 my $vars;
 
-
 Devel::ebug::HTTP->config(
   name => 'Devel::ebug::HTTP',
 );
@@ -276,7 +275,7 @@ __END__
 
 =head1 SYNOPSIS
 
-  ebug_http calc.pl
+ ebug_http calc.pl
 
 =head1 DESCRIPTION
 
@@ -289,6 +288,20 @@ which you should point a web browser to.
 
 =head1 SEE ALSO
 
-L<Devel::ebug>, L<ebug_http>
+=over 4
+
+=item L<Devel::ebug>
+
+Simple extensible Perl debugger with clean API.
+
+=item L<ebug_http>
+
+Command-line interface to ebug/http debugger.
+
+=item L<Devel::hdb>
+
+Similar web based debugger for Perl
+
+=back
 
 =cut
