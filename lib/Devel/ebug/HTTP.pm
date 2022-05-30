@@ -2,7 +2,7 @@ package Devel::ebug::HTTP;
 
 use strict;
 use warnings;
-use 5.010001;
+use 5.012;
 use Catalyst qw/Static::Simple/;
 #use Catalyst qw/-Debug Static::Simple/;
 use File::ShareDir::Dist qw( dist_share );
