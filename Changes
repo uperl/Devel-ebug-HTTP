@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Drop support for Perls older than 5.12.  (indirect dependency 
+    Getopt::Long::Descriptive requires 5.12 or better) (gh#23)
 
 0.36      2021-07-10 16:07:35 -0600
   - Require Devel::ebug 0.64 for required fixes.
