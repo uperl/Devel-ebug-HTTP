@@ -1,3 +1,5 @@
 /Devel-ebug-HTTP-*
 /.build
 *.swp
+*.old
+*.orig
