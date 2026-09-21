@@ -1,9 +1,4 @@
 #!/usr/bin/env perl
-BEGIN { 
-    $ENV{CATALYST_ENGINE} ||= 'HTTP';
-    $ENV{CATALYST_SCRIPT_GEN} = 40;
-}  
-
 use strict;
 use warnings;
 use lib::findbin '../lib'; # dev-only
