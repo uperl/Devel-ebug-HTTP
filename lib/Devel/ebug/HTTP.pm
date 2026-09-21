@@ -3,7 +3,7 @@ package Devel::ebug::HTTP;
 use strict;
 use warnings;
 use 5.016;
-use Mojo::Base 'Mojolicious';
+use Mojolicious::Lite;
 use File::ShareDir::Dist qw( dist_share );
 use PPI;
 use PPI::HTML;
@@ -19,9 +19,7 @@ my $lines_visible_above_count = 10;
 my $sequence = 1;
 my $vars;
 
-sub startup {
-  my($self) = @_;
-
+{
   my $share = dist_share('Devel-ebug-HTTP');
 
   unless(defined $share)
@@ -31,18 +29,17 @@ sub startup {
       : die "unable to find home or root";
   }
 
-  push @{ $self->static->paths }, "$share/root";
-  push @{ $self->renderer->paths }, "$share/root";
-
-  $self->plugin('TtRenderer');
-  $self->renderer->default_handler('tt');
-
-  my $r = $self->routes;
-  $r->any('/ajax_variable/:variable' => \&_ajax_variable);
-  $r->any('/ajax_eval' => \&_ajax_eval);
-  $r->any('/' => \&_do_the_request);
-  $r->any('/*whatever' => \&_do_the_request);
+  push @{ app->static->paths }, "$share/root";
+  push @{ app->renderer->paths }, "$share/root";
 }
+
+plugin 'TtRenderer';
+app->renderer->default_handler('tt');
+
+any '/ajax_variable/:variable' => \&_ajax_variable;
+any '/ajax_eval' => \&_ajax_eval;
+any '/' => \&_do_the_request;
+any '/*whatever' => \&_do_the_request;
 
 sub _ajax_variable {
   my($c) = @_;
@@ -231,7 +228,7 @@ sub main {
   $ebug->program($filename);
   $ebug->load;
 
-  Devel::ebug::HTTP->new->start(@ARGV ? @ARGV : 'daemon');
+  Devel::ebug::HTTP::app->start(@ARGV ? @ARGV : 'daemon');
 }
 
 sub ebug {
