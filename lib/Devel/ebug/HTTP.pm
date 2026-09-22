@@ -36,6 +36,8 @@ my $vars;
 plugin 'TtRenderer';
 app->renderer->default_handler('tt');
 
+app->log->level('fatal');
+
 any '/ajax_variable/:variable' => \&_ajax_variable;
 any '/ajax_eval' => \&_ajax_eval;
 any '/' => \&_do_the_request;
