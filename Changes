@@ -5,6 +5,8 @@ Revision history for {{$dist->name}}
     Getopt::Long::Descriptive requires 5.12 or better) (gh#23)
   - Migrate from Catalyst to Mojolicious. (gh#9, gh#25)
   - Require Perl 5.16 or better, the minimum required by Mojolicious.
+  - Mousing over a variable now highlights all other occurrences of
+    that variable in the displayed code. (gh#14)
 
 0.36      2021-07-10 16:07:35 -0600
   - Require Devel::ebug 0.64 for required fixes.

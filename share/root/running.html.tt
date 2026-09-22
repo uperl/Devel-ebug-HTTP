@@ -41,7 +41,7 @@
 <h3>Variables in [% subroutine %]</h3>
 [% pad = ebug.pad_human %]
 [% FOREACH k IN pad.keys.sort %]
-  <span class="symbol"><a href="#" style="text-decoration: none" onmouseover="return tooltip('[% k %]')" onmouseout="return nd();">[% k | html %]</a></span> = <span class="number">[% pad.$k | html %]</span><br/>
+  <span class="symbol"><a href="#" style="text-decoration: none" onmouseover="highlight_variable('[% k %]'); return tooltip('[% k %]')" onmouseout="unhighlight_variable('[% k %]'); return nd();">[% k | html %]</a></span> = <span class="number">[% pad.$k | html %]</span><br/>
 [% END %]
 
 <h3>Stack trace</h3>
