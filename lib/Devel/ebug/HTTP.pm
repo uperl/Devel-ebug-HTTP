@@ -209,7 +209,7 @@ sub _codelines {
 
 sub variable_html {
   my($url, $variable) = @_;
-  return qq{<a href="#" style="text-decoration: none" onmouseover="return tooltip('$variable')" onmouseout="return nd();">$variable</a>};
+  return qq{<a href="#" style="text-decoration: none" onmouseover="highlight_variable('$variable'); return tooltip('$variable')" onmouseout="unhighlight_variable('$variable'); return nd();">$variable</a>};
 }
 
 sub line_html {
