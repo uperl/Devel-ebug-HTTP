@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.37      2026-09-21 19:02:45 -0600
   - Drop support for Perls older than 5.12.  (indirect dependency
     Getopt::Long::Descriptive requires 5.12 or better) (gh#23)
   - Migrate from Catalyst to Mojolicious. (gh#9, gh#25)
